@@ -33,7 +33,7 @@ class Post(models.Model):
         default='draft')
 
     objects = models.Manager()  # Менеджер по умолчанию.
-    published = PublishedManager()  # Наш новый менеджер.
+    published = PublishedManager()  # Новый менеджер.
 
     class Meta:
         ordering = ('-publish',)
