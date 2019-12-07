@@ -1,5 +1,4 @@
-
-
+from django.core.mail import send_mail
 from django.shortcuts import render, get_object_or_404
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.views.generic import ListView
@@ -58,6 +57,8 @@ def post_detail(request, year, month, day, post):
 #             post_url = request.build_absolute_uri(post.get_absolute_url())
 #             subject = '{}({}) recommends you reading "{}"'.format(cd['name'], cd['mail'], post.title)
 #             message = 'Read "{}" at {}\n\n{}\'s comments: {}'.format(post.title, post_url, cd['name'], cd['comments'])
+#             # name_mail = config_parser.get('main', 'EMAIL_HOST_USER')
+#             name_mail = S.EMAIL_HOST_USER
 #             send_mail(subject, message, name_mail, [cd['to']])
 #             sent = True
 #         else:

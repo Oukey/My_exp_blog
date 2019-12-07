@@ -22,6 +22,7 @@ local_config_path = os.path.join(BASE_DIR, 'conf', 'local.conf')
 config_parser = RawConfigParser()
 config_parser.read(local_config_path)
 
+
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.0/howto/deployment/checklist/
 
