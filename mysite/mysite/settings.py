@@ -12,19 +12,24 @@ https://docs.djangoproject.com/en/3.0/ref/settings/
 """
 
 import os
+from configparser import RawConfigParser
+
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
+local_config_path = os.path.join(BASE_DIR, 'conf', 'local.conf')
+config_parser = RawConfigParser()
+config_parser.read(local_config_path)
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = '1p%-zrhbbk8m8_ndwt6ewrs43sf38o3p81#fh3g+qu4+#!8=hu'
+SECRET_KEY = config_parser.get('main', 'SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = config_parser.getboolean('main', 'DEBUG')
 
 ALLOWED_HOSTS = []
 
@@ -121,3 +126,6 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
 STATIC_URL = '/static/'
+
+# Отправка эл.почты
+EMAIL_BECKEND = 'django.core.mail.backends.console.EmailBackend'
