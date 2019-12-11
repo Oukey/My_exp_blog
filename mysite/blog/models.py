@@ -1,5 +1,4 @@
 # -*- coding: utf-8 -*-
-"""модуль моделей"""
 
 from django.db import models
 from django.utils import timezone
