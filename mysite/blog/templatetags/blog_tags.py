@@ -8,6 +8,6 @@ register = template.Library()
 
 
 @register.simple_tag
-def total_post():
+def total_posts():
     """Тег возвращает количество опубликованных статей"""
-    return Post.publish.count()
+    return Post.published.count()
