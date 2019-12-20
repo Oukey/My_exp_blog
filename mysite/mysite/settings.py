@@ -50,7 +50,7 @@ INSTALLED_APPS = [
     'taggit',
     # для карты сайта
     'django.contrib.sites',
-    'django.contrib/sitemaps',
+    'django.contrib.sitemaps',
 ]
 
 MIDDLEWARE = [
