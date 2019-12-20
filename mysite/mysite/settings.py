@@ -34,6 +34,7 @@ DEBUG = config_parser.getboolean('main', 'DEBUG')
 
 ALLOWED_HOSTS = []
 
+SITE_ID = 1
 
 # Application definition
 
@@ -47,6 +48,9 @@ INSTALLED_APPS = [
     # мои приложения
     'blog.apps.BlogConfig',
     'taggit',
+    # для карты сайта
+    'django.contrib.sites',
+    'django.contrib/sitemaps',
 ]
 
 MIDDLEWARE = [
