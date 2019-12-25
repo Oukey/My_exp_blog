@@ -51,6 +51,7 @@ INSTALLED_APPS = [
     # для карты сайта
     'django.contrib.sites',
     'django.contrib.sitemaps',
+    'django.contrib.postgres',
 ]
 
 MIDDLEWARE = [
@@ -87,8 +88,17 @@ WSGI_APPLICATION = 'mysite.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
 
-DATABASES = config_parser.get('main', 'DATABASES')
 
+DATABASES = {
+    'default': {
+        'ENGINE': config_parser.get('main', 'DATABASE_ENGINE'),
+        'NAME': config_parser.get('main', 'DATABASE_NAME'),
+        'USER': config_parser.get('main', 'DATABASE_USER'),
+        'PASSWORD': config_parser.get('main', 'DATABASE_PASSWORD'),
+        'HOST': config_parser.get('main', 'DATABASE_HOST'),
+        'PORT': config_parser.get('main', 'DATABASE_PORT'),
+    }
+}
 
 # Password validation
 # https://docs.djangoproject.com/en/3.0/ref/settings/#auth-password-validators
